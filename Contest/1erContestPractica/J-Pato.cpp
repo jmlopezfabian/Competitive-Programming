@@ -7,8 +7,8 @@ int main(){
     cin>>h>>w;
     char ch;
     int val = 0;
-    int slash_count = 0;
-    int dot_count = 0;
+    long long slash_count = 0;
+    long long dot_count = 0;
     bool flag = false;
     int i=0;
     int j=0;
@@ -39,5 +39,5 @@ int main(){
     //cout<<slash_count<<endl;
     //cout<<dot_count<<endl;
 
-    cout<<"\n"<<slash_count * 0.5 + dot_count;
+    cout<<"\n"<<slash_count * 0.5L + dot_count;
 }
