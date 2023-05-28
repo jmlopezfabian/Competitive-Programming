@@ -39,28 +39,46 @@ del grafo mientras siga encontrando nuevos nodos. Cuando ya no puede seguir por 
 por DFS.
 */
 
-void dfs(int i, int j, int **matriz, bool **visit){
-    //Dfs para una matriz de adyacencia.
-    cout<<"Current Node: "<<matriz[i][j];
-    visit[i][j] = true;
-    
-    for(int k = 0; k<)
 
+
+void dfs(int s, bool visited[], vector<int> adj[]){
+    if(visited[s] == true){ //Si ya lo visitamos
+        return;
+    }
+    visited[s] = true;
+    //Procees node s
+    cout<<"Current node: "<<s<<endl;
+    for(auto u: adj[s]){
+        dfs(u, visited, adj);
+    }
 }
 
 int main(){
+    //Adjaceny list representation
+    int n = 4; //Nodes
+    vector<int> adj[n];
 
-    //Implementación de una matriz de adyacencia.
-    int n = 3; //-> numero de vertices.
-    int matrizAdj[n][n];
-    
+    adj[0].push_back(1);
+    adj[0].push_back(3);
+    adj[1].push_back(0);
+    adj[1].push_back(2);
+    adj[1].push_back(3);
+    adj[2].push_back(1);
+    adj[2].push_back(3);
+    adj[3].push_back(0);
+    adj[3].push_back(1);
+    adj[3].push_back(2);
 
-    for(int i = 0; i<n; i++){
-        for(int j = 0; j<n;j++){
-            cin>>matrizAdj[i][j];
+    //Imprimir los vecinos de cada nodo.
+    for(int i=0; i<n; i++){
+        cout<<i<<" - ";
+        for(int j=0; j<adj[i].size();j++){
+            cout<<adj[i][j]<<" ";
         }
+        cout<<"\n";
     }
 
-    bool visit[n][n];
-
+    //DFS en una adjaceny list
+    bool visited[n];
+    dfs(0,visited, adj);
 }
