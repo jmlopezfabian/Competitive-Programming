@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int solution(int n, int a, int b, int c, vector<int> &dp){
+    if(n<0){
+        return INT_MIN;
+    }
+ 
+    if(dp[n] != -1){
+        return dp[n];
+    }
+ 
+    return dp[n] = max(max(solution(n-a,a,b,c,dp)+1,solution(n-b,a,b,c,dp)+1),solution(n-c,a,b,c,dp)+1);
+}
+int main(){
+    int n,a,b,c; cin>>n>>a>>b>>c;
+    vector<int> dp(n+1,-1);
+    dp[0] = 0; //Caso base
+    cout<<solution(n,a,b,c,dp);
+}
