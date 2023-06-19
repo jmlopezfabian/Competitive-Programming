@@ -8,7 +8,7 @@ void solution(){
     int n; cin>>n;
     int nums[n];
     for(int i=0; i<n; i++){
-        cin>>nums[i];
+        cin>>nums[i];   
     }
     vector<int> dp(n,INT_MAX);
     dp[0] = 0;
@@ -20,7 +20,7 @@ void solution(){
     }
     //for(int i=0; i<n;i++){
     //    cout<<dp[i]<<endl;
-    //}
+    //} 
  
     cout<<dp[n-1]<<endl;
 }
