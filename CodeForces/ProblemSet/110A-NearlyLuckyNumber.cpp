@@ -17,16 +17,15 @@ int main(){
     for(auto it = bucket1.begin(); it != bucket1.end(); it++){
         suma += it->second;
     }
-    cout<<suma<<endl;
-    string ans = "YES";
+    //cout<<suma<<endl;
+    string ans = "NO";
 
     while(suma != 0){
         if(suma % 10 == 4 || suma % 10 == 7){
-            ans = "NO";
+            ans = "YES";
             break;
         }
         suma /= 10;
     }
     cout<<ans<<endl;
-    cout<<7 % 10;
 }
