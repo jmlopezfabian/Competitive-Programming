@@ -29,10 +29,5 @@ int main(){
     }
     sort(distances.begin(),distances.end());
 
-
-    //for(int i=0; i<distances.size(); i++){
-    //    cout<<distances[i]<<endl;
-    //}
     cout << fixed << setprecision(10) <<distances[distances.size()-1]<< endl;
-    //cout<<distances.size()<<endl;
 }
