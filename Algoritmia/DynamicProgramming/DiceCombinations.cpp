@@ -23,17 +23,3 @@ int main(){
     vector<long long> memo(n+1,-1);
     cout<<totalWays(n,0, memo)<<endl;
 }
-
-int getWays(int n, vector<long> &c, int current_money,vector<long> &memo, int index){
-    if(current_money > n || index >= c.size()){
-        return 0;
-    }
-    else if(current_money == n){
-        return 1;
-    }
-    if(memo[index] != -1){
-        return memo[index];
-    }
-    memo[index] = getWays(n,c,current_money, memo,index+1) + getWays(n,c,current_money + c[index], memo, index);
-    return memo[index];
-}
