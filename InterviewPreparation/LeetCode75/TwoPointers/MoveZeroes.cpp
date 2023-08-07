@@ -30,14 +30,7 @@ public:
                 r++;
                 l++;
             }
-
-            for(int i=0; i<nums.size(); i++){
-                cout<<nums[i]<<" ";
-            }
-            cout<<"\n";
         }
-
-        
     }
 };
 
