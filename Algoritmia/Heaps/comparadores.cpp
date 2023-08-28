@@ -10,7 +10,7 @@ class Comparator{
 };
 
 int main(){
-    priority_queue<int,vector<int>, Comparator> Minheap;
+    priority_queue<int,vector<int>, greater<int>> Minheap;
 
     Minheap.push(5);
     Minheap.push(5);
