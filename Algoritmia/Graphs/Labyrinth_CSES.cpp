@@ -12,8 +12,8 @@ int main(){
 
 	vector<vector<char>> mat(n);
 	vector<vector<int>> dist(n);
-	vector<vector<pair<int,int>>> parent(n);
-
+	pair<int,int> parent[n][m];
+	
 	char aux;
 	pair<int,int> start;
 	pair<int,int> end;
@@ -26,7 +26,7 @@ int main(){
 			if(aux == 'B')
 				end.first = i; end.second = j;
 
-			dist[i][j] = -1; //No visitado
+			dist[i].push_back(-1); //No visitado
 		}
 	}
 	
@@ -34,17 +34,38 @@ int main(){
 	q.push(start);
 	dist[start.first][start.second] = 0;
 	while(!q.empty()){
-		pair<int,int> current = q.front(); q.pop();
-		
-		//Puedo ir a la izquierda?
-		int x = current.fisrt, y = current.second;
+		pair<int,int> current = q.front();
+		int x = current.first;
+		int y =  current.second;
+		q.pop();
+		//Izquierda
 		if(isValid(x, y-1,n,m) && mat[x][y-1] != '#' && dist[x][y-1] == -1){
 			dist[x][y-1] = dist[x][y] + 1;
-			parent[x][y-1] = parent[x][y];
-
+			parent[x][y-1] = {x,y};
 			q.push({x,y-1});
 		}
-	}
 
+		//Derecha
+		if(isValid(x,y+1,n,m) && mat[x][y+1] != '#' && dist[x][y+1] == -1){
+			dist[x][y+1] = dist[x][y] + 1;
+			parent[x][y+1] = {x,y};
+			q.push({x,y+1});
+		}
+
+		//Abajo
+		if(isValid(x+1,y,n,m) && mat[x+1][y] != '#' && dist[x+1][y] == -1){
+			dist[x+1][y] = dist[x][y] + 1;
+			parent[x+1][y] = {x,y};
+			q.push({x+1,y});
+		}
+
+		//Arriba
+		if(isValid(x-1,y,n,m) && mat[x-1][y] != '#' && dist[x-1][y] == -1){
+            dist[x-1][y] = dist[x][y] + 1;
+            parent[x-1][y] = {x,y};
+            q.push({x-1,y});
+        }
+	
+	cout<<dist[end.first][end.second]<<endl;
 	
 }
