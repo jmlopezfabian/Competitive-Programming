@@ -1,0 +1,11 @@
+Existen 4 codigos de estados:
+
+	Codigo 200: Representa exito (Existen varios codigos de tipo 200)
+
+	Codigos 300: Refiere a redireccion
+
+	Codigos 400: Representa un error del lado del cliente (El mas famosos 401)
+
+	Codigos 500: Representa un error del lado del servidor
+
+	
