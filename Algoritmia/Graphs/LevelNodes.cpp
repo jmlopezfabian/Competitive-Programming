@@ -13,7 +13,7 @@ int main(){
 			start = u;	
 		}
 		adj[u].push_back(v);
-		//adj[v].push_back(u);
+		adj[v].push_back(u);
 	}
 	int x; cin>>x;
 	//1.- Usar una bfs para saber la distancia desde root hasta cualquier nodo
@@ -21,8 +21,8 @@ int main(){
 	
 	queue<int> q;
 	vector<int> dist(n+1, -1);
-	dist[start] = 1;
-	q.push(start);
+	dist[1] = 1;
+	q.push(1);
 	
 	while(!q.empty()){
 		int x = q.front();
@@ -35,10 +35,10 @@ int main(){
 		}
 	}
 	int ans = 0;
-	for(auto it: dist){
-		if(it == x){
-			ans ++;
-		};
+	for(int i = 1; i <= n; i++) {
+    	if(dist[i] == x) {
+        	ans++;
+    	}
 	}
 	cout<<ans<<endl;
 }
