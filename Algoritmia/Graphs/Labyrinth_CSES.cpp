@@ -17,6 +17,7 @@ int main(){
 	char aux;
 	pair<int,int> start;
 	pair<int,int> end;
+	
 	for(int i=0; i<n; i++){
 		for(int j=0; j<m; j++){
 			cin>>aux;

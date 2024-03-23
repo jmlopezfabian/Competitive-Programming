@@ -21,14 +21,6 @@ int main(){
 		}
 	}
 
-	//for(int i=1; i<=n;i++){
-	//	cout<<"Padre: "<<i<<endl;
-	//	for(auto j: adj[i]){
-	//		cout<<j<<" ";
-	//	}
-	//	cout<<endl;
-	//}
-	//Implementar BFS e imprimir la distancia maxima desde la raiz
 	for(auto it: roots){
 		queue<int> q;
 		dist[it] = 1;
@@ -48,12 +40,10 @@ int main(){
 
 	int ans = -1;
 	for(auto it: dist){
-		//cout<<it<<" ";
 		if(it > ans){
 			ans = it;
 		}
 	}
-	//cout<<endl;
 	cout<<ans<<endl;
 
 }
