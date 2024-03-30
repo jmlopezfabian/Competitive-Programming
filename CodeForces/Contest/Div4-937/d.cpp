@@ -1,12 +1,13 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
 typedef long long ll;
+
+set<ll> binary_decimals;
+
 bool is_binary(ll n){
     while(n > 0){
-        if(n % 10 != 0 && n % 10 != 1){
-            //cout<<n<<endl;
+        if(n%10 > 1){
             return false;
         }
         n /= 10;
@@ -14,37 +15,50 @@ bool is_binary(ll n){
     return true;
 }
 
-
-set<ll> factos(ll n){
-    set<ll> f;
-    for (ll x =2 ; x*x <= n; x++){
-        while(n%x == 0){
-            f.insert(x);
-            n /= x;
-        }
-    }
-    if( n > 1) f.insert(n);
-    return f;
-}
-
 void solution(){
-    ll n;cin>>n;
+    ll n; cin>>n;
+    //cout<<n<<endl;
+
     if(is_binary(n)){
         cout<<"YES"<<endl;
         return;
     }
-    set<ll> f = factos(n);
-    for (auto it: f){
-        if(!is_binary(it)){
-            cout<<"NO"<<endl;
-            return;
+
+    auto it = binary_decimals.begin();
+    it++;
+
+    while(n > 1 && it != binary_decimals.end()){
+        
+        if(n % *it == 0){
+            n /= *it;
+            //cout<<*it<<endl;
         }
+        else{
+            it ++;
+        }
+
     }
-    cout<<"YES"<<endl;
+    //cout<<n<<endl;
+    if(it == binary_decimals.end() && n>1){
+        cout<<"NO"<<endl;
+    }else{
+        cout<<"YES"<<endl;
+    }
 }
 
+
 int main(){
+    ll lim = 100000;
+    
+    for(int i=1; i<lim; i++){
+        if(is_binary(i)){
+            binary_decimals.insert(i);
+            //cout<<i<<endl;
+        }
+    }
+
     int t; cin>>t;
+
     while(t--){
         solution();
     }
