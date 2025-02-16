@@ -18,25 +18,20 @@ void solution(){
     for(auto it: a_freq){
         if(it.second >= b_freq.size()){
             sumas_unicas += b_freq.size(); 
-            //it.second -= b_freq.size();
         }else{
             sumas_unicas += it.second;
-            //it.second -= it.second;
         }
         if (sumas_unicas >= 3){
-            //cout<<"Sumas unicas: "<< sumas_unicas<<endl;
             cout<<"YES"<<endl;
             return;
         }
     }
-    //cout<<"Sumas unicas: "<< sumas_unicas<<endl;
     cout<<"NO"<<endl;
 }
 
 int main(){
     int t; cin>>t;
     while(t--){
-        //cout<<endl;
         solution();
     }
 }
